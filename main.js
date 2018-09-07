@@ -53,4 +53,3 @@ frenchButton.addEventListener("click", toFrench);
 afrikansButton.addEventListener("click", toAfrikans);
 zuluButton.addEventListener("click", toZulu);
 
-
