@@ -1,10 +1,9 @@
 const french = {
-    	merry: "Joyeux",
-		christmas: "Noël",
-		and: "et",
-		happy: "content",
-		new: "Nouveau",
-		year: "an"
+    merry: "Joyeux",
+	christmas: "Noël",
+	and: "et",
+	happy: "content",
+	new: "Nouveau",
 };
 
 const afrikans = {
@@ -29,8 +28,8 @@ const frenchButton = document.getElementById("french__button");
 const afrikansButton = document.getElementById("afrikans__button");
 const zuluButton = document.getElementById("zulu__button");
 
-let frenchKeys = Object.keys(french);
-let frenchWords = Object.values(french);
+let translation = [];
+
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -38,28 +37,25 @@ const printToDom = (stringToPrint, divId) => {
   };
 
 const toFrench = () => {
+    translation = [];
     let inputText = document.getElementById("input__field").value;
     inputText = inputText.toLowerCase();
     let inputArray = inputText.split(' ');
-    let translation = [];
-    for (var i = 0; i < frenchWords.length; i++) {
-        for (var j = 0; j < inputArray.length; j++) {
-            if (frenchKeys[i] === inputArray[j]) {
-                translation.push(frenchWords[i]);
-            }
-            stringBuilder(translation);
-         }
-    }
-};
+        for (var i = 0; i < inputArray.length; i++) {
+                translation.push(french[inputArray[i]]);
+            }  
+            stringBuilder();
+    };
 
-const stringBuilder = (translation, frenchKeys) => {
-    let newString = 
-    for (var i = 0; i < translation.length; i++) {
-        if (frenchKeys[i] !== translation[i]) {
-            newString = 
+const stringBuilder = () => {
+    let newString = '';
+        if (translation.includes(undefined)) {
+            newString = "Undefined words have been entered";
+        } else {
+            newString = `Your translation is ${translation.join(" ")}.`;
         }
-    }
-}
+        printToDom(newString, "translate__div");
+    };
 
 // const toAfrikans = () => {
 //     let inputText = document.getElementById("input__field").value;
