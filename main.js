@@ -1,5 +1,5 @@
 const french = {
-    	merry: "joyeux",
+    	merry: "Joyeux",
 		christmas: "Noël",
 		and: "et",
 		happy: "content",
@@ -39,17 +39,27 @@ const printToDom = (stringToPrint, divId) => {
 
 const toFrench = () => {
     let inputText = document.getElementById("input__field").value;
+    inputText = inputText.toLowerCase();
     let inputArray = inputText.split(' ');
-    let frenchGreeting = ''
+    let translation = [];
     for (var i = 0; i < frenchWords.length; i++) {
         for (var j = 0; j < inputArray.length; j++) {
             if (frenchKeys[i] === inputArray[j]) {
-                frenchGreeting += `${frenchWords[i]} `;
+                translation.push(frenchWords[i]);
             }
-            printToDom(frenchGreeting, "translate__div");
+            stringBuilder(translation);
          }
     }
 };
+
+const stringBuilder = (translation, frenchKeys) => {
+    let newString = 
+    for (var i = 0; i < translation.length; i++) {
+        if (frenchKeys[i] !== translation[i]) {
+            newString = 
+        }
+    }
+}
 
 // const toAfrikans = () => {
 //     let inputText = document.getElementById("input__field").value;
