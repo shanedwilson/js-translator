@@ -25,9 +25,10 @@ const zulu = {
     year: "ngonyaka"
 };
 
-let frenchButton = document.getElementById("french__button");
-let afrikansButton = document.getElementById("afrikans__button");
-let zuluButton = document.getElementById("zulu__button");
+const frenchButton = document.getElementById("french__button");
+const afrikansButton = document.getElementById("afrikans__button");
+const zuluButton = document.getElementById("zulu__button");
+
 let frenchKeys = Object.keys(french);
 let frenchWords = Object.values(french);
 
@@ -36,7 +37,6 @@ const printToDom = (stringToPrint, divId) => {
     selectedDiv.innerHTML = stringToPrint;
   };
 
-//not working yet
 const toFrench = () => {
     let inputText = document.getElementById("input__field").value;
     let inputArray = inputText.split(' ');
