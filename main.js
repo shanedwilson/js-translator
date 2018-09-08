@@ -29,26 +29,25 @@ const languages = {
 let buttons = document.getElementById('button__div');
 let translation = [];
 let buttonArray = document.getElementsByClassName('lanuguage__button');
-
-// const randomButton = () => {
-//     let randomize = Math.floor((Math.random() * buttonArray.length) + 1);
-//     let randomId = randomize
-        
-    
-// }; 
+let language = ''
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = stringToPrint;
 };
 
-const translator = () => {
-    translation = [];
+const buttonClick = () => {
     let randomize = Math.floor((Math.random() * buttonArray.length) + 1);
-    let language = event.target.id;
     if (event.target.id = "random") {
         language = languages[randomize];
     } else {
+         language = event.target.id;
+    }    
+    return language;
+};
+
+const translator = () => {
+    translation = [];
     let inputText = document.getElementById("input__field").value;
     inputText = inputText.toLowerCase();
     let inputArray = inputText.split(' ');
@@ -56,8 +55,7 @@ const translator = () => {
                 translation.push(languages[language][inputArray[i]]);
             }  
         stringBuilder();
-    };        
-};
+};        
 
 const stringBuilder = () => {
     let newString = '';
@@ -69,11 +67,4 @@ const stringBuilder = () => {
         printToDom(newString, "translate__div");
     };
 
-// const randomButton = () => {
-//     let randomize = Math.floor((Math.random() * buttonArray.length) + 1);
-//     let randomId = 
-        
-    
-// };    
-
-buttons.addEventListener("click", translator);
+buttons.addEventListener("click", buttonClick(), translator());
