@@ -1,4 +1,8 @@
 const languages = {
+    blank: {
+
+    },
+
     french: {
         merry: "Joyeux",
         christmas: "Noël",
@@ -29,8 +33,7 @@ const languages = {
 let buttons = document.getElementById('button__div');
 let translation = [];
 let buttonArray = document.getElementsByClassName('language__button');
-let randomize = Math.floor((Math.random() * buttonArray.length) + 1);
-
+var lang = Object.keys(languages);
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -38,10 +41,11 @@ const printToDom = (stringToPrint, divId) => {
 };
 
 const translator = () => {
-    let language = '';
+    let randomize = Math.floor((Math.random() * lang.length) + 1);
+    let language =''
     translation = [];
-    if (event.target.id = 'random') {
-        language = languages[randomize];
+    if (event.target.id === 'random') {
+         language = lang[randomize];
     } else {
         language = event.target.id;
     }
@@ -49,7 +53,7 @@ const translator = () => {
     inputText = inputText.toLowerCase();  
     let inputArray = inputText.split(' ');
         for (var i = 0; i < inputArray.length; i++) {
-                translation.push(languages[language][inputArray[i]]);
+            translation.push(languages[language][inputArray[i]]);
             }  
     stringBuilder();
 };        
