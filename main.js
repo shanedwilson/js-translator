@@ -24,9 +24,10 @@ const zulu = {
     year: "ngonyaka"
 };
 
-const frenchButton = document.getElementById("french__button");
-const afrikansButton = document.getElementById("afrikans__button");
-const zuluButton = document.getElementById("zulu__button");
+// const frenchButton = document.getElementById("french__button");
+// const afrikansButton = document.getElementById("afrikans__button");
+// const zuluButton = document.getElementById("zulu__button");
+let languageButton = document.getElementById('button__div')
 let translation = [];
 
 const printToDom = (stringToPrint, divId) => {
@@ -34,38 +35,38 @@ const printToDom = (stringToPrint, divId) => {
     selectedDiv.innerHTML = stringToPrint;
   };
 
-const toFrench = () => {
+const translator = () => {
     translation = [];
     let inputText = document.getElementById("input__field").value;
     inputText = inputText.toLowerCase();
     let inputArray = inputText.split(' ');
         for (var i = 0; i < inputArray.length; i++) {
-                translation.push(french[inputArray[i]]);
+                translation.push(language[inputArray[i]]);
             }  
         stringBuilder();
     };
 
-const toAfrikans = () => {
-    translation = [];
-    let inputText = document.getElementById("input__field").value;
-    inputText = inputText.toLowerCase();
-    let inputArray = inputText.split(' ');
-        for (var i = 0; i < inputArray.length; i++) {
-            translation.push(afrikans[inputArray[i]]);
-            }  
-        stringBuilder();
-    };
+// const toAfrikans = () => {
+//     translation = [];
+//     let inputText = document.getElementById("input__field").value;
+//     inputText = inputText.toLowerCase();
+//     let inputArray = inputText.split(' ');
+//         for (var i = 0; i < inputArray.length; i++) {
+//             translation.push(afrikans[inputArray[i]]);
+//             }  
+//         stringBuilder();
+//     };
     
-const toZulu = () => {
-    translation = [];
-    let inputText = document.getElementById("input__field").value;
-    inputText = inputText.toLowerCase();
-    let inputArray = inputText.split(' ');
-        for (var i = 0; i < inputArray.length; i++) {
-            translation.push(zulu[inputArray[i]]);
-            }  
-        stringBuilder();
-        };   
+// const toZulu = () => {
+//     translation = [];
+//     let inputText = document.getElementById("input__field").value;
+//     inputText = inputText.toLowerCase();
+//     let inputArray = inputText.split(' ');
+//         for (var i = 0; i < inputArray.length; i++) {
+//             translation.push(zulu[inputArray[i]]);
+//             }  
+//         stringBuilder();
+//         };   
 
 const stringBuilder = () => {
     let newString = '';
@@ -77,6 +78,6 @@ const stringBuilder = () => {
         printToDom(newString, "translate__div");
     };
 
-frenchButton.addEventListener("click", toFrench);
-afrikansButton.addEventListener("click", toAfrikans);
-zuluButton.addEventListener("click", toZulu);
+frenchButton.addEventListener("click", translator);
+// afrikansButton.addEventListener("click", toAfrikans);
+// zuluButton.addEventListener("click", toZulu);
