@@ -1,34 +1,34 @@
-const french = {
-    merry: "Joyeux",
-	christmas: "Noël",
-	and: "et",
-	happy: "content",
-	new: "Nouveau",
+const languages = {
+    french: {
+        merry: "Joyeux",
+        christmas: "Noël",
+        and: "et",
+        happy: "content",
+        new: "Nouveau",
+    },
+
+    afrikans : {
+        merry: "Vrolik",
+        christmas: "Kersfees",
+        and: "en",
+        happy: "gelukkig",
+        new: "nuwe",
+        year: "jaar"
+    },
+
+    zulu : {
+        merry: "Ujabule",
+        christmas: "Christmas",
+        and: "futhi",
+        happy: "ujabule",
+        new: "okusha",
+        year: "ngonyaka"
+    }
 };
 
-const afrikans = {
-    merry: "Vrolik",
-    christmas: "Kersfees",
-    and: "en",
-    happy: "gelukkig",
-    new: "nuwe",
-    year: "jaar"
-};
-
-const zulu = {
-    merry: "Ujabule",
-    christmas: "Christmas",
-    and: "futhi",
-    happy: "ujabule",
-    new: "okusha",
-    year: "ngonyaka"
-};
-
-// const frenchButton = document.getElementById("french__button");
-// const afrikansButton = document.getElementById("afrikans__button");
-// const zuluButton = document.getElementById("zulu__button");
-let languageButton = document.getElementById('button__div')
+let buttons = document.getElementById('button__div')
 let translation = [];
+
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -37,36 +37,15 @@ const printToDom = (stringToPrint, divId) => {
 
 const translator = () => {
     translation = [];
+    let language = event.target.id;
     let inputText = document.getElementById("input__field").value;
     inputText = inputText.toLowerCase();
     let inputArray = inputText.split(' ');
         for (var i = 0; i < inputArray.length; i++) {
-                translation.push(language[inputArray[i]]);
+                translation.push(languages[language][inputArray[i]]);
             }  
         stringBuilder();
     };
-
-// const toAfrikans = () => {
-//     translation = [];
-//     let inputText = document.getElementById("input__field").value;
-//     inputText = inputText.toLowerCase();
-//     let inputArray = inputText.split(' ');
-//         for (var i = 0; i < inputArray.length; i++) {
-//             translation.push(afrikans[inputArray[i]]);
-//             }  
-//         stringBuilder();
-//     };
-    
-// const toZulu = () => {
-//     translation = [];
-//     let inputText = document.getElementById("input__field").value;
-//     inputText = inputText.toLowerCase();
-//     let inputArray = inputText.split(' ');
-//         for (var i = 0; i < inputArray.length; i++) {
-//             translation.push(zulu[inputArray[i]]);
-//             }  
-//         stringBuilder();
-//         };   
 
 const stringBuilder = () => {
     let newString = '';
@@ -78,6 +57,4 @@ const stringBuilder = () => {
         printToDom(newString, "translate__div");
     };
 
-frenchButton.addEventListener("click", translator);
-// afrikansButton.addEventListener("click", toAfrikans);
-// zuluButton.addEventListener("click", toZulu);
+buttons.addEventListener("click", translator);
