@@ -7,7 +7,7 @@ const french = {
 };
 
 const afrikans = {
-    merry: "vrolik",
+    merry: "Vrolik",
     christmas: "Kersfees",
     and: "en",
     happy: "gelukkig",
@@ -16,8 +16,8 @@ const afrikans = {
 };
 
 const zulu = {
-    merry: "ujabule",
-    christmas: "christmas",
+    merry: "Ujabule",
+    christmas: "Christmas",
     and: "futhi",
     happy: "ujabule",
     new: "okusha",
@@ -29,7 +29,6 @@ const afrikansButton = document.getElementById("afrikans__button");
 const zuluButton = document.getElementById("zulu__button");
 
 let translation = [];
-
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -44,8 +43,30 @@ const toFrench = () => {
         for (var i = 0; i < inputArray.length; i++) {
                 translation.push(french[inputArray[i]]);
             }  
-            stringBuilder();
+        stringBuilder();
     };
+
+const toAfrikans = () => {
+    translation = [];
+    let inputText = document.getElementById("input__field").value;
+    inputText = inputText.toLowerCase();
+    let inputArray = inputText.split(' ');
+        for (var i = 0; i < inputArray.length; i++) {
+            translation.push(afrikans[inputArray[i]]);
+            }  
+        stringBuilder();
+    };
+    
+const toZulu = () => {
+    translation = [];
+    let inputText = document.getElementById("input__field").value;
+    inputText = inputText.toLowerCase();
+    let inputArray = inputText.split(' ');
+        for (var i = 0; i < inputArray.length; i++) {
+            translation.push(zulu[inputArray[i]]);
+            }  
+        stringBuilder();
+        };   
 
 const stringBuilder = () => {
     let newString = '';
@@ -57,17 +78,6 @@ const stringBuilder = () => {
         printToDom(newString, "translate__div");
     };
 
-// const toAfrikans = () => {
-//     let inputText = document.getElementById("input__field").value;
-//     printToDom(inputText, "translate__div");
-// };
-
-// const toZulu = () => {
-//     let inputText = document.getElementById("input__field").value;
-//     printToDom(inputText, "translate__div");
-// };
-
 frenchButton.addEventListener("click", toFrench);
-// afrikansButton.addEventListener("click", toAfrikans);
-// zuluButton.addEventListener("click", toZulu);
-
+afrikansButton.addEventListener("click", toAfrikans);
+zuluButton.addEventListener("click", toZulu);
