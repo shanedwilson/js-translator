@@ -27,7 +27,6 @@ const zulu = {
 const frenchButton = document.getElementById("french__button");
 const afrikansButton = document.getElementById("afrikans__button");
 const zuluButton = document.getElementById("zulu__button");
-
 let translation = [];
 
 const printToDom = (stringToPrint, divId) => {
