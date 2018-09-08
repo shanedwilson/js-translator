@@ -1,55 +1,60 @@
-const french = {
-    	merry: "joyeux",
-		xmas: "Noël",
-		and: "et",
-		happy: "content",
-		new: "Nouveau",
-		year: "an"
+const languages = {
+    french: {
+        merry: "Joyeux",
+        christmas: "Noël",
+        and: "et",
+        happy: "content",
+        new: "Nouveau",
+    },
+
+    afrikans : {
+        merry: "Vrolik",
+        christmas: "Kersfees",
+        and: "en",
+        happy: "gelukkig",
+        new: "nuwe",
+        year: "jaar"
+    },
+
+    zulu : {
+        merry: "Ujabule",
+        christmas: "Christmas",
+        and: "futhi",
+        happy: "ujabule",
+        new: "okusha",
+        year: "ngonyaka"
+    }
 };
 
-const afrikans = {
-    merry: "vrolik",
-    xmas: "Kersfees",
-    and: "en",
-    happy: "gelukkig",
-    new: "nuwe",
-    year: "jaar"
-};
+let buttons = document.getElementById('button__div')
+let translation = [];
 
-const zulu = {
-    merry: "ujabule",
-    xmas: "i-christmas",
-    and: "futhi",
-    happy: "ujabule",
-    new: "okusha",
-    year: "ngonyaka"
-};
-
-let frenchButton = document.getElementById("french__button");
-let afrikansButton = document.getElementById("afrikans__button");
-let zuluButton = document.getElementById("zulu__button");
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = stringToPrint;
   };
 
-const toFrench = () => {
+const translator = () => {
+    translation = [];
+    let language = event.target.id;
     let inputText = document.getElementById("input__field").value;
-    printToDom(inputText, "translate__div");
-};
+    inputText = inputText.toLowerCase();
+    let inputArray = inputText.split(' ');
+        for (var i = 0; i < inputArray.length; i++) {
+                translation.push(languages[language][inputArray[i]]);
+            }  
+        stringBuilder();
+    };
 
-const toAfrikans = () => {
-    let inputText = document.getElementById("input__field").value;
-    printToDom(inputText, "translate__div");
-};
+const stringBuilder = () => {
+    let newString = '';
+        if (translation.includes(undefined)) {
+            newString = "Undefined words have been entered";
+        } else {
+            newString = `Your translation is ${translation.join(" ")}.`;
+        }
+        printToDom(newString, "translate__div");
+    };
 
-const toZulu = () => {
-    let inputText = document.getElementById("input__field").value;
-    printToDom(inputText, "translate__div");
-};
-
-frenchButton.addEventListener("click", toFrench);
-afrikansButton.addEventListener("click", toAfrikans);
-zuluButton.addEventListener("click", toZulu);
-
+buttons.addEventListener("click", translator);
