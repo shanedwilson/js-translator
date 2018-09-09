@@ -60,11 +60,11 @@ const translator = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = translation;
     if (language === 'French') {
-        speechLang = 'fr-FR';
+        speechLang = 'fr';
     } else if (language === 'Afrikans') {
-        speechLang = 'af-ZA	';
+        speechLang = 'af';
     } else if (language === 'Zulu') {
-        speechLang = 'zu-ZA	';
+        speechLang = 'zu';
     } else {
         speechLang = 'en-US';
     }
