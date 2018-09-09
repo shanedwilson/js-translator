@@ -1,4 +1,8 @@
 const languages = {
+    blank: {
+
+    },
+
     french: {
         merry: "Joyeux",
         christmas: "Noël",
@@ -26,26 +30,33 @@ const languages = {
     }
 };
 
-let buttons = document.getElementById('button__div')
+let buttons = document.getElementById('button__div');
 let translation = [];
-
+let buttonArray = document.getElementsByClassName('language__button');
+var lang = Object.keys(languages);
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
     selectedDiv.innerHTML = stringToPrint;
-  };
+};
 
 const translator = () => {
+    let randomize = Math.floor((Math.random() * lang.length) + 1);
+    let language =''
     translation = [];
-    let language = event.target.id;
+    if (event.target.id === 'random') {
+         language = lang[randomize];
+    } else {
+        language = event.target.id;
+    }
     let inputText = document.getElementById("input__field").value;
-    inputText = inputText.toLowerCase();
+    inputText = inputText.toLowerCase();  
     let inputArray = inputText.split(' ');
         for (var i = 0; i < inputArray.length; i++) {
-                translation.push(languages[language][inputArray[i]]);
-            }  
-        stringBuilder();
-    };
+            translation.push(languages[language][inputArray[i]]);
+        }  
+    stringBuilder();
+};        
 
 const stringBuilder = () => {
     let newString = '';
@@ -54,7 +65,7 @@ const stringBuilder = () => {
         } else {
             newString = `Your translation is ${translation.join(" ")}.`;
         }
-        printToDom(newString, "translate__div");
-    };
+    printToDom(newString, "translate__div");
+};
 
 buttons.addEventListener("click", translator);
