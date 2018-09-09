@@ -54,7 +54,7 @@ const translator = () => {
     let inputArray = inputText.split(' ');
         for (var i = 0; i < inputArray.length; i++) {
             translation.push(languages[language][inputArray[i]]);
-            }  
+        }  
     stringBuilder();
 };        
 
