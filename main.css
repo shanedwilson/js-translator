@@ -1,7 +1,61 @@
 body {
-    background-color: aqua;
+    background-color: rgb(240, 82, 82);
+    background-image: url(https://www.publicdomainpictures.net/pictures/240000/velka/holiday-background-1509545703N7q.jpg);
 }
 
 #title {
+    font-size: 3em;
+    text-align: center;
+    color: rgb(224, 205, 205)
+}
+
+.description {
+    /* margin-left: 100px; */
+    font-size: 1.5em;
+    color: rgb(207, 187, 187);
     text-align: center;
 }
+
+#input__div, #button__div, #translate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#input__field {
+    border: solid lightgray;
+    height: 80px;
+    font-size: 1.5em;
+    text-align: center;
+    width: 60%;
+}
+
+#button__div {
+    padding: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;   
+}
+
+.language__button {
+    margin: 20px;
+}
+
+button {
+    width: 28%;  
+    height: 2em;
+    background-color: rgba(182, 172, 172, 0.986);
+    border-radius: 6px;
+    font-weight: 700
+}
+
+#translate__div {
+    background-color: white;
+    border: solid lightgray;
+    height: 80px;
+    font-size: 1.5em;
+    text-align: center;
+    width: 60%;
+    padding-top: 35px;
+}
+
+

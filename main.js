@@ -1,17 +1,14 @@
 const languages = {
-    blank: {
-
-    },
-
-    french: {
+    French: {
         merry: "Joyeux",
         christmas: "Noël",
         and: "et",
         happy: "content",
         new: "Nouveau",
+        year: "an"
     },
 
-    afrikans : {
+    Afrikans : {
         merry: "Vrolik",
         christmas: "Kersfees",
         and: "en",
@@ -20,7 +17,7 @@ const languages = {
         year: "jaar"
     },
 
-    zulu : {
+    Zulu : {
         merry: "Ujabule",
         christmas: "Christmas",
         and: "futhi",
@@ -34,6 +31,8 @@ let buttons = document.getElementById('button__div');
 let translation = [];
 let buttonArray = document.getElementsByClassName('language__button');
 var lang = Object.keys(languages);
+// lang = lang.map(function(x){ return x.toLowerCase() });
+
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -55,15 +54,15 @@ const translator = () => {
         for (var i = 0; i < inputArray.length; i++) {
             translation.push(languages[language][inputArray[i]]);
         }  
-    stringBuilder();
+    stringBuilder(language);
 };        
 
-const stringBuilder = () => {
+const stringBuilder = (language) => {
     let newString = '';
         if (translation.includes(undefined)) {
-            newString = "Undefined words have been entered";
+            newString = "Undefined words have been entered.";
         } else {
-            newString = `Your translation is ${translation.join(" ")}.`;
+            newString = `Your translation in ${language} is ${translation.join(" ")}.`;
         }
     printToDom(newString, "translate__div");
 };
