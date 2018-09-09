@@ -13,7 +13,7 @@ body {
     font-size: 1.5em;
 }
 
-#input__div, #button__div, #random__div, #translate {
+#input__div, #button__div, #translate {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,8 @@ body {
 
 #button__div {
     padding: 50px;
-    flex-direction: row;   
+    flex-direction: row;
+    flex-wrap: wrap;   
 }
 
 .language__button {
@@ -37,15 +38,11 @@ body {
 }
 
 button {
-    width: 20em;  
+    width: 28%;  
     height: 2em;
     background-color: rgba(182, 172, 172, 0.986);
     border-radius: 6px;
     font-weight: 700
-}
-
-#random__div {
-    flex-direction: row;
 }
 
 #translate__div {
@@ -55,7 +52,6 @@ button {
     font-size: 1.5em;
     text-align: center;
     width: 60%;
-    margin: 50px;
     padding-top: 35px;
 }
 
