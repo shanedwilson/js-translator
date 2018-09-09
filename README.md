@@ -8,14 +8,16 @@ Finally, for extra credit, I used SpeechSynthesisUtterance in JavaScript to voca
 
 ## Screenshots
 
-​![main screenshot](./screenshots/js-translator-main.png)
+​!(./screenshots/js-translator-main.png)
 
 ## How to run this project:
 
 * Use nmp to install htpp-server:
 
 ```sh
+
 npm install -g http-server
+
 ```
 * Run the server:
 
@@ -32,5 +34,5 @@ hs -p 9999
 localhost:9999
 
 ```
-23
+
 ​
