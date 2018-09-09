@@ -48,13 +48,28 @@ const translator = () => {
     } else {
         language = event.target.id;
     }
+
     let inputText = document.getElementById("input__field").value;
     inputText = inputText.toLowerCase();  
     let inputArray = inputText.split(' ');
         for (var i = 0; i < inputArray.length; i++) {
             translation.push(languages[language][inputArray[i]]);
-        }  
+        }
     stringBuilder(language);
+    let speechLang = "";    
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = translation;
+    if (language === 'French') {
+        speechLang = 'fr-FR';
+    } else if (language === 'Afrikans') {
+        speechLang = 'af-ZA	';
+    } else if (language === 'Zulu') {
+        speechLang = 'zu-ZA	';
+    } else {
+        speechLang = 'en-US';
+    }
+    msg.lang = speechLang;  
+    speechSynthesis.speak(msg);
 };        
 
 const stringBuilder = (language) => {
@@ -67,4 +82,5 @@ const stringBuilder = (language) => {
     printToDom(newString, "translate__div");
 };
 
-buttons.addEventListener("click", translator);
+
+buttons.addEventListener("click", translator,);
