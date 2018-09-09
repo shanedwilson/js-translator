@@ -9,6 +9,7 @@ const languages = {
         and: "et",
         happy: "content",
         new: "Nouveau",
+        year: "an"
     },
 
     afrikans : {
