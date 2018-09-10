@@ -8,7 +8,7 @@ Finally, for extra credit, I used SpeechSynthesisUtterance in JavaScript to voca
 
 ## Screenshots
 
-​!(./screenshots/js-translator-main.png)
+​![main screenshot](./screenshots/js-translator-main.png)
 
 ## How to run this project:
 

@@ -31,8 +31,6 @@ let buttons = document.getElementById('button__div');
 let translation = [];
 let buttonArray = document.getElementsByClassName('language__button');
 var lang = Object.keys(languages);
-// lang = lang.map(function(x){ return x.toLowerCase() });
-
 
 const printToDom = (stringToPrint, divId) => {
     const selectedDiv = document.getElementById(divId);
@@ -40,7 +38,7 @@ const printToDom = (stringToPrint, divId) => {
 };
 
 const translator = () => {
-    let randomize = Math.floor((Math.random() * lang.length) + 1);
+    let randomize = Math.floor((Math.random() * lang.length));
     let language =''
     translation = [];
     if (event.target.id === 'random') {
